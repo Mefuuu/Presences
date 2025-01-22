@@ -2,10 +2,10 @@ const iframe = new iFrame();
 
 iframe.on("UpdateData", async () => {
 	const video = document.querySelector<HTMLVideoElement>("video");
-	if (video && !isNaN(video.duration)) {
+	if (!isNaN(video?.duration)) {
 		iframe.send({
-			currTime: video.currentTime,
 			duration: video.duration,
+			currentTime: video.currentTime,
 			paused: video.paused,
 		});
 	}
